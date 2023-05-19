@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body{
+
+        background: url(bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      width: 100%;
+    }
+
+    table {
+      border-radius: 10px;
+    }
+
+    th {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+<h1 style="background-color: floralwhite;">Millimeter Converter!</h1>
+<h5 style="background-color: floralwhite;">Convert Millimeter to Centimeters, Meters, and even Kilometers!</h5>
+<br>
+<br>
+<br>
+  <table class="table table-bordered" style="background-color:#4F7942">
+  <thead class="thead-light">
+  <tr>
+    <th colspan="2">Type how much millimeters you want to convert below!</th>
+  </tr>
+  </thead>
+    <tbody>
+  <tr>
+  <td colspan="2">
+<div class="form-group">
+  <input type="number" id="millimeters" class="form-control" placeholder="Enter mm here" oninput="clearResult()">
+  </div>
+  </td>
+  </tr>
+  <tr>
+  <td colspan="2">
+<div class="form-group">
+  <button class="btn btn-success" onclick="tocm()">to CM!</button>
+  </div>
+  </td>
+  </tr>
+  <tr>
+  <td colspan="2">
+<div class="form-group">
+  <button class="btn btn-success" onclick="tom()">to M!</button>
+  </div>
+  </td>
+  </tr>
+  <tr>
+  <td colspan="2">
+<div class="form-group">
+  <button class="btn btn-success" onclick="tokm()">to KM!</button>
+  </div>
+  </td>
+  </tr>
+  <tr>
+  <td colspan="2">
+  <div class="form-group">
+  <label for="result" style="background-color: white;">Conversion Results:</label>
+  <input type="text" id="result" class="form-control" readonly>
+  </div>
+  </td>
+  </tr>
+  </tbody>
+</table>
+</div>
+  <script>
+    function tocm() {
+      var millimeters = parseFloat(document.getElementById("millimeters").value);
+      if (!isNaN(millimeters)) {
+        var centimeters = millimeters / 10;
+        document.getElementById("result").value = centimeters.toFixed(2) + "cm";
+      }
+    }
+    function tom() {
+      var millimeters = parseFloat(document.getElementById("millimeters").value);
+      if (!isNaN(millimeters)) {
+        var meters = millimeters / 1000;
+        document.getElementById("result").value = meters.toFixed(2) + "m";
+      }
+    }
+    function tokm() {
+      var millimeters = parseFloat(document.getElementById("millimeters").value);
+      if (!isNaN(millimeters)) {
+        var kilometers = millimeters / 1000000;
+        document.getElementById("result").value = kilometers.toFixed(2) + "km";
+      }
+    }
+    function clearResult() {
+      document.getElementById("result").value = "";
+    }
+  </script>
+</body>
+</html>
